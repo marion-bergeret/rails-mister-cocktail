@@ -1,18 +1,15 @@
 <%= render '/layouts/navbar' %>
 
-
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/originals/68/30/77/683077a731fb8c798546afbb5f14b356.jpg');">
   <div class="banner-content">
     <p>Add a new cocktail</p>
-    <%= form_for(@cocktail) do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
+    <div class="form-group">
+      <%= simple_form_for @cocktail do |f| %>
+        <%= f.input :name, class: 'form-control' %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
