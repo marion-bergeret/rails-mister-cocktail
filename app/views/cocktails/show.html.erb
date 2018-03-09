@@ -1,24 +1,21 @@
 <%= render '/layouts/navbar' %>
 
-<h1><%= @cocktail.name %></h1>
-
-<div>
-    <ul>
-      Ingredients: <%@cocktail.ingredients.each do |ing|  %>
-        <li><%= ing.name  %></li>
-      <% end %>
-    </ul>
-
-    <ul>
-      Doses: <% @cocktail.doses.each do |dose|  %>
-        <li><%= dose.ingredient.name %></li>
-        <li><%= dose.description  %></li>
-        <button type="button" class="btn btn-link"><%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose), method: :delete %></button>
-
-      <% end %>
-    </ul>
-
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/originals/68/30/77/683077a731fb8c798546afbb5f14b356.jpg');">
+  <div class="banner-content">
+    <h1><%= @cocktail.name %></h1>
+    <div>
+        <ul>
+          Ingredients: <% @cocktail.doses.each do |dose|  %>
+            <li><%= dose.ingredient.name %> - <em><%= dose.description  %></em> </li>
+            <button type="button" class="btn btn-link"><%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, cocktail_dose_path(@cocktail, dose), method: :delete %></button>
+          <% end %>
+        </ul>
+    </div>
+  </div>
 </div>
+
+
+
 
 <%= link_to "Add a dose", new_cocktail_dose_path(params[:id]) %>
 

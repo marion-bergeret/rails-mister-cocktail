@@ -1,10 +1,15 @@
 
 <%= render '/layouts/navbar' %>
 
-<p>Add a new dose to <%= @cocktail.name  %></p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://s-media-cache-ak0.pinimg.com/originals/68/30/77/683077a731fb8c798546afbb5f14b356.jpg');">
+  <div class="banner-content">
+    <p>Add a new dose to <%= @cocktail.name  %></p>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.association :ingredient %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.association :ingredient %>
+      <%= f.input :description %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
+
