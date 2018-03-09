@@ -10,6 +10,7 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'
 gem 'simple_form'
 gem 'figaro'
+gem 'cloudinary'
 
 ruby '2.4.3'
 
